@@ -25,8 +25,12 @@ public class Main {
             }
         }
         zipFiles("C:/Games/savegames/save.zip", listFiles);
+       zipDeleteFiles("C:/Games/savegames/save.zip", listFiles);
+
+
 
     }
+
 
     public static boolean saveGame(String path, GameProgress game) {
 
@@ -64,6 +68,9 @@ public class Main {
             System.out.println(ex.getMessage());
             return false;
         }
+        return true;
+    }
+    public static void zipDeleteFiles(String pathZip,List<String> listFiles ) {
         for (String path : listFiles) {
             File fileDel = new File(path);
             String s = fileDel.getPath().toString().replace("\\", "/");
@@ -71,6 +78,5 @@ public class Main {
                 fileDel.delete();
             }
         }
-        return true;
     }
 }
